@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>参数变色</title>
+<style>
+	#div1{
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+</style>
+<script>
+	function setColor(color){
+		var obj=document.getElementById('div1');
+		obj.style.background=color;//不能加引号
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="变绿" onclick="setColor('green')">
+	<input type="button" value="变黄" onclick="setColor('yellow')">
+	<input type="button" value="变黑" onclick="setColor('black')">
+	<div id="div1"></div>
+</body>
+</html>

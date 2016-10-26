@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>定时器时钟</title>
+	<script>
+		function toDou(n){
+			if(n<10){
+				return '0'+n;
+			}else{
+				return ''+n;//空字符+n保证返回的是字符串
+			}
+		}
+		window.onload=function(){
+			var aImg=document.getElementsByTagName('img');
+
+			function clock(){
+				var oDate=new Date();
+				var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());//获得六位字符串
+				//alert(str);
+
+				for (var i = 0; i < aImg.length; i++) {
+			 		aImg[i].src='img/'+str.charAt(i)+'.png';//用charAt获取字符串中的一位，代替[]解决兼容性问题，[]在低版本ie不支持
+				}
+
+			}
+			setInterval(clock,1000);
+			clock();//没有的话一开始第一秒钟会显示全0
+		};
+	</script>
+</head>
+<body style="background:black;color:white;font-size:50px;">
+	<img src="img/0.png" alt="">
+	<img src="img/0.png" alt="">
+	:
+	<img src="img/0.png" alt="">
+	<img src="img/0.png" alt="">
+	:
+	<img src="img/0.png" alt="">
+	<img src="img/0.png" alt="">
+</body>
+</html>

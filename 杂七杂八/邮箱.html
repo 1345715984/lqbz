@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>新建网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<style>
+	
+</style>
+
+<script type="text/javascript">
+		//点击事件
+    	function check(){
+    		var obj=document.getElementById("email");//访问id为email的值，如果("email").value没有.value就获得email对象
+    		if(obj.value!=""){
+    			var str=obj.value;
+    			if(str.indexOf("@")!=-1){
+    				if(str.indexOf(".")!=-1){
+    					var a=str.split("@");
+    					if(a[0].length>1){
+    						document.getElementById("mess").innerHTML="<font color='green'>正确</font>";
+    					}else{
+    						document.getElementById("mess").innerHTML="<font color='red'>长度错误</font>";
+    					}
+    				}else{
+    					document.getElementById("mess").innerHTML="<font color='red'>错误</font>";
+    					}
+    			}else{
+    				document.getElementById("mess").innerHTML="<font color='red'>错误</font>";
+    				}
+    		}
+    	}
+</script>
+
+</head>
+    <body>
+  
+    	<label>email:</label><input type="text" id="email"/>
+    	<input type="button" value="验证" onclick="check()"/>
+    	<span id="mess"></span>
+    </body>
+</html>

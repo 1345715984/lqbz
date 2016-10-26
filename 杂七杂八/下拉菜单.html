@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单-选项表</title>
+	<style>
+		#div1 .active{ background: yellow;}
+		#div1 div{
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			border: 1px solid #999;
+			display: none;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var aBtn=oDiv.getElementsByTagName('input');
+			var aDiv=oDiv.getElementsByTagName('div');
+
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].index=i;//自定义一个属性
+				aBtn[i].onclick=function(){
+					for (var i = 0; i < aBtn.length; i++) {
+						aBtn[i].className='';//全部变得没有样式
+						aDiv[i].style.display="none";
+					}
+					this.className='active';//this当前的按钮，点击的按钮添加样式
+					aDiv[this.index].style.display='block';
+				};
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input type="button" value="教育" class="active">
+		<input type="button" value="培训">
+		<input type="button" value="出国">
+		<input type="button" value="招生">
+	
+		<div style="display:block;">111</div>
+		<div>222</div>
+		<div>333</div>
+		<div>444</div>
+	</div>
+</body>
+</html>

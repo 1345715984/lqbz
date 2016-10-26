@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义动画</title>
+	<script type="text/javascript" src="jquery-2.0.0.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("div span").click(function(){
+				//$("div").css({color:"red",border:"2px solid blue"}).animate({"fontSize":"+=10"},'slow');//字体放大,第一种用法,$(selector).animate(styles,speed,easing,callback)
+				//CSS 样式使用 DOM 名称（比如 "fontSize"）来设置，而非 CSS 名称（比如 "font-size"）
+				$("div").css({color:"red",border:"5px solid blue"}).animate({"fontSize":"+=10"},{duration:'slow',easing:'linear'});//俩个{}设定不同属性,$(selector).animate(styles,options)
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<span>点击查看效果</span>
+		<p>段落1</p>
+		<p>段落2</p>
+		<p>段落3</p>
+	</div>
+</body>
+</html>

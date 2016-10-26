@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+<title>表单实例</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<style>
+	#all{
+		margin: 0 auto;
+	}
+	#left{
+		float: left;
+	}
+	#right{
+		
+	}
+	#footer{		
+		width: 200px;
+		clear: both;
+	}
+	#footer span{
+		display: block;
+		text-align: center;
+	}
+	#imgTitle{
+
+		border:1px solid black;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript">
+	var add=1;
+	var tt=new Array("<strong>图1</strong>",
+		"<strong>图2</strong>",
+		"<strong>图3</strong>",
+		"<strong>图4</strong>");
+
+	var bd=true;
+	function over(){
+		Src=document.getElementById("myimg").src;
+		document.getElementById("myimg").src="tu1.jpg";
+	}
+	function out(){
+		document.getElementById("myimg").src=Src;
+	}
+	function Change(x){
+		var add2;
+		switch(x){
+			case 1:
+			do{
+				add2=Math.floor(Math.random()*4+1);//产生随机数1234
+			}while(add2==add);//产生不相同的随机数
+			add=add2;
+			document.getElementById("myimg").src="tu"+add+".jpg";//换图片
+			document.getElementById("imgTitle").innerHTML=tt[add-1];
+			break;
+			case 2:
+			var w=document.getElementById("w").value;
+			var h=document.getElementById("h").value;
+			document.getElementById("myimg").width=w;
+			document.getElementById("myimg").height=h;
+			break;
+			case 3:
+			document.getElementById("myimg").width=300;//还原
+			document.getElementById("myimg").height=260;
+			break;
+			case 4:
+			bd=!bd;
+			if(bd){
+				document.getElementById("myimg").border=0;
+			}else{
+				document.getElementById("myimg").border=1;
+			}
+			break;
+		}
+	}
+</script>
+</head>
+    <body>
+    	<div id="all">
+    		<div id="left">
+    			<img src="tu1.jpg" id="myimg" onclick="alert('点我干嘛？');" onmouseover="over()" onmouseout="out()" border="0"/>
+    		</div>
+    		<div id="right">
+    			<button onclick="Change(1);">随机取图像</button><br/>
+    			宽度-<input type="text" id="w" size="3" value="300"/>
+    			<br/>
+    			高度-<input type="text" id="h" size="3" value="260"/>
+    			<br/>
+    			<button onclick="Change(2);">设置尺寸</button><br/>
+    			<button onclick="Change(3);">还原尺寸</button><br/>
+    			<button onclick="Change(4)">增/删边框</button>
+    		</div>
+    	
+    		<div id="footer">
+    		<span>图片说明</span>
+    		<b id="imgTitle"><strong>图1</strong></b>
+    		<!--strong定义重要的文本  <b> 标签呈现粗体文本效果。
+<b> 标签是基于内容的样式标签 <strong> 的物理版本，但它没有后者的扩展意义。  <b> 标签明确地将包括在它和其结束标签之间的字符或者文本变成粗体。如果某种加粗的字体不可用，浏览器将使用一些其他的表现方法，例如反相显示或者加下划线等-->
+    		</div>
+    </div>
+    </body>
+</html>

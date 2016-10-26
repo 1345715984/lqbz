@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>中间浮框</title>
+<style>
+	#div1{
+		width: 100px;
+		height: 200px;
+		background: red;
+		position: absolute;
+		top: 200px;
+		right: 0;
+	}
+	#txt{
+		position: fixed;
+		top: 0;
+		right: 0;
+	}
+</style>
+<script>
+	window.onscroll=function(){//onscroll 元素滚动时执行
+		var oDiv=document.getElementById('div1');
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;//取俩个兼容，scrollTop() 方法设置或返回被选元素的【垂直滚动条位置】
+		sMove(parseInt((document.documentElement.clientHeight-oDiv.offsetHeight)/2+scrollTop));//可视高度减去自身高度除以二刚好居中，不取整小数会抖（始终到不了目标点）
+	};
+		var timer=null;//必须定义在函数外边
+		function sMove(target){
+			oDiv=document.getElementById('div1');
+			
+			clearInterval(timer);//保证只执行一次定时器
+			timer=setInterval(function(){
+				var speed=(target-oDiv.offsetTop)/4;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(oDiv.offsetTop==target){
+					clearInterval(timer);
+				}else{
+					document.title=target;
+					document.getElementById('txt').value=oDiv.offsetTop;
+					oDiv.style.top=oDiv.offsetTop+speed+"px";
+				}	
+			},30);
+		}
+	
+</script>	
+</head>
+<body style="height:2000px">
+	<input id="txt" type="text">
+	<div id="div1">我是广告</div>
+</body>
+</html>

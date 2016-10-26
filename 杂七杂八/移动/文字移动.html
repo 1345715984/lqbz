@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>文字跟随鼠标移动</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+
+<style>
+	#layer{
+		width: 100px;
+		height: 30px;
+		position: absolute;
+		line-height: 30px;
+	}
+</style>
+
+<script type="text/javascript">
+	window.onmousemove=function(){
+	
+		var obj=document.getElementById("layer");
+		obj.style.left=event.clientX+10+'px';
+		obj.style.top=event.y+10+'px';
+	
+	};
+</script>
+</head>
+    <body>
+    	<div id="layer">我要动</div>	
+    </body>
+</html>

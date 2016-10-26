@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>简易年历</title>
+<style>
+	#tab{
+		width: 350px;
+		height: 500px;
+		margin: 0 auto;
+		border: 10px solid gold;
+	}
+	div ul{
+		list-style: none;
+	}
+	div ul li{
+		width: 50px;
+		height: 80px;
+		background: black;
+		color: white;
+		border: 1px solid black;
+		text-align: center;
+		margin: 10px;
+		float: left;
+	}
+	div ul li p{
+		font: italic bold 20px/5px "SimHei",serif;
+	}
+	.active{
+		background: white;
+		color: red;
+	}
+	#text{
+		margin: 0 auto;
+		width: 200px;
+		height: 100px;
+		border: 1px solid black;
+		clear: both;
+	}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('tab');
+		var aLi=oDiv.getElementsByTagName('li');
+		var aTxt=oDiv.getElementsByTagName('div')[0];
+
+		var arr=[
+				'一月活动~~~~',
+				'二月活动~~~~',
+				'三月活动~~~~',
+				'四月活动~~~~',
+				'五月活动~~~~',
+				'六月活动~~~~',
+				'七月活动~~~~',
+				'八月活动~~~~',
+				'九月活动~~~~',
+				'十月活动~~~~',
+				'十一月活动~~~~',
+				'十二月活动~~~~',
+				];
+
+		for (var i = 0; i < aLi.length; i++) {
+			aLi[i].index=i;
+			aLi[i].onmouseover=function(){	
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].className='';
+				}
+				this.className='active';
+				aTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+			};
+		}
+	};
+</script>
+</head>
+<body>
+	<div id="tab">
+		<ul>
+			<li class="active"><h2>1</h2><p>JUN</p></li>
+			<li><h2>2</h2><p>FER</p></li>
+			<li><h2>3</h2><p>MAR</p></li>
+			<li><h2>4</h2><p>APR</p></li>
+			<li><h2>5</h2><p>MAY</p></li>
+			<li><h2>6</h2><p>JUN</p></li>
+			<li><h2>7</h2><p>JUL</p></li>
+			<li><h2>8</h2><p>AUG</p></li>
+			<li><h2>9</h2><p>SEP</p></li>
+			<li><h2>10</h2><p>OCT</p></li>
+			<li><h2>11</h2><p>NOV</p></li>
+			<li><h2>12</h2><p>DEC</p></li>
+		</ul>
+		<div id="text">
+			<h2>一月活动</h2>
+			<p>一月活动~~~</p>
+		</div>
+	</div>
+</body>
+</html>

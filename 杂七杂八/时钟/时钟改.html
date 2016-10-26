@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		body{
+			background:black; 
+			color:white;
+			font-size:50px;
+		}
+	</style>
+	<script>
+		function toDou(n){
+			if(n<10){
+				return '0'+n;
+			}else{
+				return ''+n;//空字符+n保证返回的是字符串
+			}
+		}
+		window.onload=function(){
+			var oDiv1=document.getElementById('div1');
+			var oDiv2=document.getElementById('div2');
+			var oDiv3=document.getElementById('div3');
+
+			var aImg1=oDiv1.getElementsByTagName('img');
+			var aImg2=oDiv2.getElementsByTagName('img');
+			var aImg3=oDiv3.getElementsByTagName('img')[0];
+
+			
+
+			function clock(){
+				var oDate=new Date();
+
+				var str1=''+oDate.getFullYear()+toDou(oDate.getMonth()+1)+toDou(oDate.getDate());//月份要加一从1号开始
+				//alert(str1);
+				var str2=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());//获得六位字符串
+				//alert(str2);
+				var obj=oDate.getDay();
+				//alert(obj);
+				
+				var arr=['seven','one','two','three','four','five','six'];
+
+				for (var i = 0; i < aImg1.length; i++) {
+			 		aImg1[i].src='img/'+str1.charAt(i)+'.png';
+				}
+
+				for (var i = 0; i < aImg2.length; i++) {
+			 		aImg2[i].src='img/'+str2.charAt(i)+'.png';
+				}
+
+			 		aImg3.src='img/'+arr[obj]+'.png';
+				
+
+			}
+			setInterval(clock,1000);
+			clock();//没有的话一开始第一秒钟会显示全0
+		};
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		年
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		月
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		日
+	</div>
+	<div id="div2">
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		:
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+		:
+		<img src="img/0.png" alt="0">
+		<img src="img/0.png" alt="0">
+	</div>
+	<div id="div3">
+		星期
+		<img src="img/seven.png" alt="seven">
+	</div>
+</body>
+</html>

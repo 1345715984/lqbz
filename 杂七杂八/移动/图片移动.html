@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>按键实现图片移动</title>
+<style>
+	#layer{
+		width: 100px;
+		height: 30px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+</style>
+
+<script type="text/javascript">
+	window.onkeydown=function(){
+//需要考虑边界问题，获得可视界面大小，不然移动会先移动滚动条
+		var obj=document.getElementById("layer");
+		//alert(event.keyCode);//获得键码值
+		if(event.keyCode==39){//向右移动
+			obj.style.left=obj.offsetLeft+20+'px';
+		}
+		if(event.keyCode==37){//向左移动
+			obj.style.left=obj.offsetLeft-20+'px';
+		}
+		if(event.keyCode==38){//向上移动
+			obj.style.top=obj.offsetTop-20+'px';
+		}
+		if(event.keyCode==40){//向下移动
+			obj.style.top=obj.offsetTop+20+'px';
+		}
+	};
+</script>
+</head>
+    <body>
+    	<div id="layer"><img src="tu1.jpg"/></div>
+    </body>
+</html>
