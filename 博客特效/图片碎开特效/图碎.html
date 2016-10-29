@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zhcn">
+<head>
+	<meta charset="UTF-8">
+	<title>Boom</title>
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	width: 100%;
+	height: 100%;
+}
+.main,.main2,.main3{
+	width: 1000px;
+	margin: 200px auto;
+	position: relative;
+}
+.main img,.main2 img,.main3 img{
+	display: block;
+	margin: 0 auto;
+}
+</style>
+<body>
+	<div class="main">
+		<img src="img/1.png" alt="1">
+	</div>
+
+	<div class="main2">
+		<img src="img/2.png" alt="2">
+	</div>
+	<div class="main3">
+		<img src="img/55.jpg" alt="boom">
+	</div>
+</body>
+<script>
+	//随机数  
+	function Random(start,end){    
+	    return Math.random()*(end-start)+start;    
+	}
+	var myBoom=(function(win,doc){
+		function Boom(box,w,h){
+			this.bax=box;
+			this.img=this.bax.getElementsByTagName('img')[0]||false;
+			this.w=w||10; 
+			this.h=h||10; 
+			this.key=true;
+			if (!this.img) {
+				throw new Error("未找到图片！");
+				return;
+			}
+			this.init();
+		}
+		Boom.prototype.init=function(){
+			var That=this;
+			width_=That.img.width,
+			height_=That.img.height,
+			offTop=That.img.offsetTop,
+			offLeft=That.img.offsetLeft,
+			one_width=width_/That.w,
+			one_height=height_/That.h,
+			box=document.createElement('div');
+
+			box.style.cssText='\
+			position:absolute;\
+			left:'+offLeft+'px;\
+			top:'+offTop+'px;\
+			width:'+width_+'px;\
+			height:'+height_+'px;';
+
+			for (var j = 0; j < That.w; j++) {
+				for (var i = 0; i < That.h; i++) {
+					var _div=document.createElement('div'); 
+					_div.className='every';
+					_div.style.cssText = 
+					'position:absolute;\
+					background:url('+That.img.src+') no-repeat;\
+					width:'+one_width+'px;\
+					height:'+one_height+'px;\
+					left:'+( j*one_width )+'px;\
+					top:'+( i*one_height )+'px;\
+					background-position:'+(-j*one_width)+ 'px '+(-i*one_height)+'px;\
+					transition:all '+Random(1,2)+'s ease;';
+					box.appendChild(_div);  
+				}
+			}
+			That.bax.appendChild(box);
+			box.addEventListener('click',That.start.bind(That),false);
+		}
+		Boom.prototype.start=function(){
+			var That=this;
+			if (!That.key) return;
+			var _div_=That.bax.querySelectorAll('.every');
+			setTimeout(function(){
+				That.img.style.opacity=0;
+				[].forEach.call(_div_,function(e,i){
+					e.style.transform='perspective(800px) translate3d('+Random(-200,200)+'px, '+Random(-200,200)+'px,300px) rotate('+Random(-90,90)+'deg) scale('+ Random(0,2) +')';
+					e.style.opacity=0;
+				})
+			},30)
+			That.key=!That.key;
+		}
+		return Boom;
+	})(window,document)
+
+	window.onload=function(){
+		var box=document.querySelector('.main');
+		new myBoom(box,30,10);
+
+		var box2=document.querySelector('.main2');
+		new myBoom(box2,30,10);
+
+		var box3=document.querySelector('.main3');
+		new myBoom(box3,5,5);
+	}
+</script>
+</html>

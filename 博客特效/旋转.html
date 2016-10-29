@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>AB</title>
+  <style>
+  body
+  {
+   background-color:#000;
+  }
+  td
+  {
+    width:10px;
+	height:10px;
+	border-radius:10px;
+	background-color:#ff0000;
+	position:fixed;
+	left:50%;
+	top:50%;
+  }
+  @keyframes td
+	{
+	 0%{background-color:#ff0000;}
+	 20%{background-color:#ff5809;}
+	 40%{background-color:#ffff33;}
+	 60%{background-color:#33ff3e;}
+	 80%{background-color:#33f0ff;}
+	 90%{background-color:#3e1cff;}
+	 100%{background-color:#ff33ff;}
+	}
+	td
+	{
+             animation: td 10s ease-in-out 1s infinite alternate;
+    }
+  .q1
+  {
+    width:70px;
+	height:70px;
+	border-radius:70px;
+	border:4px solid #ff5809;
+	margin:-34px -34px;
+	border-bottom-color: transparent;
+    border-top-color: transparent ;
+  }
+  .q2
+  {
+    width:90px;
+	height:90px;
+	border-radius:90px;
+	border:4px solid #ffff33;
+	margin:-88px -44px;
+	border-bottom-color: transparent;
+    border-top-color: transparent;
+  }
+  .q3
+  {
+    width:110px;
+	height:110px;
+	border-radius:110px;
+	border:4px solid #33ff3e;
+	margin: -108px -54px;
+	border-bottom-color: transparent;
+    border-top-color: transparent;
+  }
+  .q4
+  {
+    width:130px;
+	height:130px;
+	border-radius:130px;
+	border:4px solid #33f0ff;
+	margin: -128px -64px;
+ 	border-bottom-color: transparent;
+    border-top-color: transparent;
+  }
+  .q5
+  {
+    width:150px;
+	height:150px;
+	border-radius:150px;
+	border:4px solid #3e1cff;
+	margin: -148px -74px;
+	border-bottom-color: transparent;
+    border-top-color: transparent;
+  }
+  .q6
+  {
+    width:170px;
+	height:170px;
+	border-radius:170px;
+	border:4px solid #ff33ff;
+	margin: -168px -84px;
+	border-bottom-color: transparent;
+    border-top-color: transparent;
+  }
+    @keyframes q1
+	{
+	 0%{transform:rotate(0deg);}
+	 20%{transform:rotate(1340deg);}
+	 40%{transform:rotate(1400deg);}
+	 60%{transform:rotate(1460deg);}
+	 80%{transform:rotate(1520deg);}
+	 100%{transform:rotate(2300deg);}
+	}
+	td .q1
+	{
+           animation: q1 16s ease-in-out 0.1s infinite alternate;
+    }
+	  @keyframes q2
+	{
+	 0%{transform:rotate(0deg);}
+	 20%{transform:rotate(1300deg);}
+	 40%{transform:rotate(1360deg);}
+	 60%{transform:rotate(1420deg);}
+	 80%{transform:rotate(1480deg);}
+	 100%{transform:rotate(2340deg);}
+	}
+	td .q2
+	{
+            animation: q2 16s ease-in-out 0.1s infinite alternate;
+    }
+	  @keyframes q3
+	{
+ 	 0%{transform:rotate(0deg);}
+	 20%{transform:rotate(1200deg);}
+	 40%{transform:rotate(1260deg);}
+	 60%{transform:rotate(1320deg);}
+	 80%{transform:rotate(1380deg);}
+	 100%{transform:rotate(2400deg);}
+	}
+	td .q3
+	{ 
+              animation: q3 16s ease-in-out 0.1s infinite alternate;
+    }
+	  @keyframes q4
+	{
+	 0%{transform:rotate(0deg);}
+	 20%{transform:rotate(1020deg);}
+	 40%{transform:rotate(1380deg);}
+	 60%{transform:rotate(1340deg);}
+	 80%{transform:rotate(1200deg);}
+	 100%{transform:rotate(2460deg);}
+	}
+	td .q4
+	{
+              animation: q4 16s ease-in-out 0.1s infinite alternate;
+    }
+	  @keyframes q5
+	{
+	 0%{transform:rotate(0deg);}
+	 20%{transform:rotate(920deg);}
+	 40%{transform:rotate(1380deg);}
+	 60%{transform:rotate(1340deg);}
+	 80%{transform:rotate(1100deg);}
+	 100%{transform:rotate(2540deg);}
+	}
+	td .q5
+	{
+         animation: q5 16s ease-in-out 0.1s infinite alternate;
+    }
+	  @keyframes q6
+	{
+	 0%{transform:rotate(0deg);}
+	 20%{transform:rotate(860deg);}
+	 40%{transform:rotate(1320deg);}
+	 60%{transform:rotate(1380deg);}
+	 80%{transform:rotate(1040deg);}
+	 100%{transform:rotate(2580deg);}
+	}
+	td .q6
+	{
+           animation: q6 16s ease-in-out 0.1s infinite alternate;
+    }
+  </style>
+ </head>
+ <body>
+ <table>
+ <tr>
+ <td>
+   <div class="q1"></div>
+   <div class="q2"></div>
+   <div class="q3"></div>
+   <div class="q4"></div>
+   <div class="q5"></div>
+   <div class="q6"></div>
+ </td>
+ </tr>
+</table>
+ </body>
+</html>
